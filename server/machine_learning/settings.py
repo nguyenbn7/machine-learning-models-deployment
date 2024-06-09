@@ -29,7 +29,21 @@ SECRET_KEY = config["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config["DEBUG"]
 
+CSRF_COOKIE_SECURE = not DEBUG
+
+SESSION_COOKIE_SECURE = not DEBUG
+
+SECURE_SSL_REDIRECT = not DEBUG
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = not DEBUG
+
+SECURE_HSTS_PRELOAD = not DEBUG
+
+SECURE_HSTS_SECONDS = 1
+
 ALLOWED_HOSTS = config["ALLOWED_HOSTS"]
+
+CORS_ALLOWED_ORIGINS = config["CORS_ALLOWED_ORIGINS"]
 
 
 # Application definition
@@ -41,12 +55,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     # "django.contrib.messages",
     # "django.contrib.staticfiles",
+    "corsheaders",
     "classification",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
