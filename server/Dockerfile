@@ -29,7 +29,7 @@ RUN python -m pip install gunicorn==21.2.0
 WORKDIR /app
 COPY . /app
 COPY --from=download_model /ml-models/dog-breeds/. /app/classification/
-RUN --mount=type=secret,id=settings_json,dst=/etc/secrets/settings.json cat /etc/secrets/settings.json > /app
+RUN --mount=type=secret,id=settings_json,dst=/etc/secrets/settings.json cat /etc/secrets/settings.json > /app/settings.json
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
