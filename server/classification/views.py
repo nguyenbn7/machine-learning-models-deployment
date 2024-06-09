@@ -44,13 +44,13 @@ class DogBreedDectectionView(APIView):
         top_5_values = top_5.values.numpy()
         top_5_indices = top_5.indices.numpy()
 
-        top_5_confidence = {
+        top_5 = {
             dog_breeds[top_5_indices[i]]: f"{round(top_5_values[i] * 100, 2)}%"
             for i in range(5)
         }
 
         return Response({
             "breed": class_pred,
-            "best confidence": f"{top_5_confidence[class_pred]}",
-            "top 5 confidence": top_5_confidence,
+            "best confidence": f"{top_5[class_pred]}",
+            "top 5": top_5,
         })
