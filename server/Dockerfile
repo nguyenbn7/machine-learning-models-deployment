@@ -30,7 +30,6 @@ WORKDIR /app
 COPY . /app
 COPY --from=download_model /ml-models/dog-breeds/custom-mobilenetv2-Adam.h5 /app/classification/
 RUN --mount=type=secret,id=settings_json,dst=/etc/secrets/settings.json cat /etc/secrets/settings.json > /app/settings.json
-RUN ls classification -a
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers

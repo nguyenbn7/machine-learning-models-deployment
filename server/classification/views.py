@@ -10,8 +10,6 @@ from tensorflow import keras
 
 from .prediction import dog_breeds
 
-environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
-
 # Create your views here.
 
 IMG_SIZE = 224
