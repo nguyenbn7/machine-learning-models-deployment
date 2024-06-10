@@ -1,17 +1,14 @@
-@BASE_URL=http://localhost:8000/projects
+@BASE_URL=http://localhost:8000/services
 
 ### 
 POST {{BASE_URL}}/classification/dog-breeds HTTP/1.1
-Content-Type: multipart/form-data; boundary=boundary
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryVETcbMBEBqBuZLEL
 
---boundary 
-Content-Disposition: form-data; name="text"
-
-title
---boundary
-Content-Disposition: form-data; name="image"; filename="1.jpg"
+------WebKitFormBoundaryVETcbMBEBqBuZLEL
+Content-Disposition: form-data; name="image_file"; filename="1.jpg"
 Content-Type: image/jpeg
 
 < ./images/dog-breeds/1.jpg
 
---boundary--
+
+------WebKitFormBoundaryVETcbMBEBqBuZLEL--

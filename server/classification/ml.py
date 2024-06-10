@@ -1,4 +1,22 @@
+import logging
+from os import path
+from pathlib import Path
+
+import tensorflow as tf
 from numpy import array
+
+IMG_SIZE = 224
+model_name = "custom-mobilenetv2-Adam.h5"
+model = tf.keras.models.load_model(path.join(Path(__file__).parent, model_name))
+
+tf.get_logger().setLevel(logging.ERROR)
+
+
+def preprocess_image(path):
+    image = tf.keras.utils.load_img(path, target_size=(IMG_SIZE, IMG_SIZE))
+    image_array = tf.keras.utils.img_to_array(image)
+    return tf.cast(tf.expand_dims(image_array, 0) / 255.0, dtype=tf.float32)
+
 
 dog_breeds = array(
     [
