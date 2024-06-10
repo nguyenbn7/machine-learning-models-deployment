@@ -1,7 +1,21 @@
-@BASE_URL=http://localhost:8000/services
+@LOCAL_SERVER_BASE_URL=http://localhost:8000/services
+@DEPLOYED_SERVER_BASE_URL=https://demo-machine-learning-models.onrender.com/services
 
 ### 
-POST {{BASE_URL}}/classification/dog-breeds HTTP/1.1
+POST {{LOCAL_SERVER_BASE_URL}}/classification/dog-breeds HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryVETcbMBEBqBuZLEL
+
+------WebKitFormBoundaryVETcbMBEBqBuZLEL
+Content-Disposition: form-data; name="image_file"; filename="1.jpg"
+Content-Type: image/jpeg
+
+< ./images/dog-breeds/1.jpg
+
+
+------WebKitFormBoundaryVETcbMBEBqBuZLEL--
+
+### 
+POST {{DEPLOYED_SERVER_BASE_URL}}/classification/dog-breeds HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryVETcbMBEBqBuZLEL
 
 ------WebKitFormBoundaryVETcbMBEBqBuZLEL
