@@ -16,7 +16,7 @@ environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 IMG_SIZE = 224
 model_name = "custom-mobilenetv2-Adam.h5"
-model = keras.saving.load_model(
+model = keras.models.load_model(
     path.join(settings.BASE_DIR, "classification", model_name)
 )
 
