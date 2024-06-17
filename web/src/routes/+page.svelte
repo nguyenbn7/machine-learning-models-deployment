@@ -156,6 +156,7 @@
 						class="form-control me-1"
 						placeholder="https://example.com/dog_image.(jpg | png)"
 						on:input={handleImageUrl}
+						disabled={isPredicting}
 					/>
 					<button
 						class="btn btn-primary px-4 p-2"
